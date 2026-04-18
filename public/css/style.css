@@ -1,0 +1,108 @@
+body{
+    font-family: "Arimo", sans-serif !important;
+
+    /* So that our footer will be fix at one place we will use below three and one more flex: 1; of .container */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1; 
+}
+
+/* Navbar */
+.navbar{
+    height: 4rem;
+    background-color: rgb(240, 239, 238);
+}
+.navbar-brand{
+    display: flex;
+    align-items: center;
+}
+.fa-tree-city{
+    font-size: 2rem;
+}
+.nav-link{
+    color: #222222 !important; /* we use !important so that our custom styling will override bootstrap styling */
+
+}
+/* Navbar */
+.footer-info-links a{
+    text-decoration: none;
+    color: #222222;
+}
+.footer-info-links :hover{
+    text-decoration: underline;
+}
+.footer-info-links,
+.footer-info-socials,
+.footer-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-info-socials i{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+}
+
+.footer-info{
+    display: flex;
+    justify-content: center;
+    height: 6rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    /* align-items: space-evenly; */
+    text-align: center;
+}
+/* Card */
+.listing-card{
+    border: none !important;
+    margin-bottom: 2rem;   
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p{
+    font-weight: 400;
+}
+.listing-link{
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* Show Page */
+.show-img{
+    height: 50vh;
+}
+.btns{
+    display: flex;
+}
+.del-btn{
+    background-color: red !important;
+}
+
+/* Map */
+
+#map{
+    height: 350px;
+    width: 80vh;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+

@@ -1,0 +1,35 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row mt-3">
+        <h2 class="col-6 offset-3">Login on Great Hotels</h2>
+        <div class="col-6 offset-3">
+        <form action="/login" method="post" class="needs-validation" novalidate>
+
+        <!-- mb-3 means margin bottom 3 to give some spacing in bottom -->
+        <div class="mb-3">    
+            <label for="username" class="form-label">Username</label>
+            <input class="form-control"
+            name="username"
+            id="username"
+            type="text"
+            class="form-control"
+            required
+            />
+        </div>
+
+        <div class="mb-3">    
+            <label for="password" class="form-label">Password</label>
+            <input class="form-control"
+            name="password"
+            id="password"
+            type="password"
+            class="form-control"
+            required
+            />
+        </div>
+
+        <button class="btn btn-success">Login</button>
+
+        </form>
+        </div>
+    </div>

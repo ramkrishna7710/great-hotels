@@ -1,0 +1,63 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const Review = require("./review")
+
+const listingSchema = new Schema({
+   title: {
+    type: String,
+    required: true,
+   },
+
+   description: String,
+   
+   image: {
+      url: String,
+      filename:String,
+   },
+   
+   price: Number,
+   location: String,
+   country: String,
+   //Reviews
+   reviews: [
+      {
+         type: Schema.Types.ObjectId, // To store object id in this array
+         ref: "Review",
+      }
+   ],
+   owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+   },
+
+   //Map
+   geometry: {
+      type: {
+        type: String,
+        enum: ['Point'],
+        required: true
+      },
+    coordinates: {
+        type: [Number],
+        required: true
+      }
+   },
+
+   //Hotel Category
+   category: {
+      type: String,
+      enum: ["Mountain", "Monsoon", "Snow", "Deserts", "Farms", "Cities"]
+   }
+   
+});
+
+//Post mangoose middleware to delete all reviews when listing is deleted
+listingSchema.post("findOneAndDelete", async(req,res)=>{
+   if(listing){
+      await Review.deleteMany({_id: {$in: listing.reviews}})
+   }
+})
+
+const Listing = mongoose.model("Listing", listingSchema)
+module.exports = Listing;

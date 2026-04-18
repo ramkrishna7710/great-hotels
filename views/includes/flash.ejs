@@ -1,0 +1,18 @@
+<!--For Success Flash-->
+<% if(success && success.length){ %> <!--Here success is an array which exists but elements doesn't exits so we have to add one more condition success.length > 0 -->
+    <div class="row">
+        <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success[0] %> <!--Flash message for successfully creation of listing-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+
+<!--For Error Flash-->
+<% if(error && error.length){ %> <!--Here error is an array which exists but elements doesn't exits so we have to add one more condition error.length > 0 -->
+    <div class="row">
+        <div class="alert alert-danger alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= error[0] %> <!--Flash message for error on listing page-->
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<%}%>
+
