@@ -1,6 +1,6 @@
 const Listing = require("./models/listing");
 const Review = require("./models/review");
-const ExpressError = require("./utlity/ExpressError");
+const ExpressError = require("./utility/ExpressError");
 const {listingSchema, reviewSchema} = require("./schema"); //Joi A Schema validator by server side so that anyone cant send wrong requests by our APIs.
 
 //Listing Validator

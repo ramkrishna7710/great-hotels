@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate")
-const ExpressError = require("./utlity/ExpressError");
+const ExpressError = require("./utility/ExpressError");
 const session = require("express-session"); // require session to use express sessions
 const MongoStore = require('connect-mongo');// mongodb sessions
 const flash = require("connect-flash");//use flash messages while using sessions
@@ -31,7 +31,7 @@ main()
     .catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(mongoUrl, { //change url here and inn line 47 too
+  await mongoose.connect(dbUrl, { //change url here and inn line 47 too
     family: 4 // Forces Node.js to use IPv4
   });
 }
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname,"/public"))); //use static files in p
 app.engine("ejs", ejsMate); 
 
 const store = MongoStore.create({
-    mongoUrl: mongoUrl,
+    mongoUrl: dbUrl,
     crypto: { //encrypt the secret key
         secret: process.env.SECRET,
     },
@@ -57,7 +57,7 @@ store.on("error", (err)=>{
 
 //Express Sessions
 const sessionOptions = {
-    // store, //use above MongoStore
+    store, //use above MongoStore
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true,

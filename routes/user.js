@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router({}); //If we want to merge the parent and the child param we use mergeParams: true
 const User = require("../models/user");
-const wrapAsync = require("../utlity/wrapAsync");
+const wrapAsync = require("../utility/wrapAsync");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const { saveRedirectUrl } = require("../middleware");
