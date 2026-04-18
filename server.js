@@ -11,7 +11,7 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate")
 const ExpressError = require("./utility/ExpressError");
 const session = require("express-session"); // require session to use express sessions
-const MongoStore = require('connect-mongo');// mongodb sessions
+const MongoStore = require('connect-mongo').default;// mongodb sessions
 const flash = require("connect-flash");//use flash messages while using sessions
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -43,7 +43,7 @@ app.use(methodOverride("_method")); //to use methods such as put, patch, delete 
 app.use(express.static(path.join(__dirname,"/public"))); //use static files in public
 app.engine("ejs", ejsMate); 
 
-const store = MongoStore.create({
+const store = new MongoStore({
     mongoUrl: dbUrl,
     crypto: { //encrypt the secret key
         secret: process.env.SECRET,
